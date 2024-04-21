@@ -1,0 +1,292 @@
+header {
+  position: fixed; /* Set the position to fixed */
+  top: 0; /* Position at the top of the viewport */
+  width: 98%; /* Make it full-width */
+  height: 30px; /* Set a fixed height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(19, 25, 33);
+  font-family: 'Roboto', Arial, sans-serif;
+  z-index: 1000; /* Set a high z-index to ensure it's above other elements */
+}
+
+/* Styles for the desktop logo with image drop shadow and hover pointer effect */
+.logo.desktop-logo img {
+  width: 100px; /* Adjust the width as needed for desktop */
+  transition: box-shadow 0.3s ease, transform 0.3s ease, cursor 0.3s; /* Add transitions for box-shadow, transform, and cursor properties */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Apply a drop shadow directly to the image on hover */
+.logo.desktop-logo img:hover {
+  filter: drop-shadow(-1px 2px 1px rgba(255, 153, 0, 0.7)); /* Adjust values as needed for the drop shadow */
+  transform: scale(1.1); /* Adjust the scale factor for the hover pointer effect */
+}
+
+/* Styles for the mobile logo with image drop shadow and hover pointer effect */
+.logo.mobile-logo img {
+  max-width: 50px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, cursor 0.3s; /* Add transitions for box-shadow, transform, and cursor properties */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Apply a drop shadow directly to the image on hover */
+.logo.mobile-logo img:hover {
+  filter: drop-shadow(-1px 2px 1px rgba(255, 153, 0, 0.7)); /* Adjust values as needed for the drop shadow */
+  transform: scale(1.1); /* Adjust the scale factor for the hover pointer effect */
+}
+
+/* Media query to hide the mobile logo on larger screens */
+@media screen and (min-width: 771px) {
+  .logo.mobile-logo {
+    display: none; /* Hide the mobile logo on screens wider than 770px */
+  }
+  .search-bar {
+    margin-left: 20px; /* Add margin between search bar and desktop logo */
+  }
+  .cart {
+    margin-left: 20px; /* Add margin between user links, cart, and search bar */
+  }
+}
+
+/* Media query for screens up to 770px wide (for mobile version) */
+@media screen and (max-width: 770px) {
+  /* Hide elements you mentioned */
+  .logo.desktop-logo {
+    display: none; /* Hide the desktop logo on screens up to 770px wide */
+  }
+
+  .returns-orders a,
+  .cart-number,
+  .cart img,
+  .cart-text {
+    display: none; /* Hide these elements */
+  }
+  header {
+    flex-direction: row; /* Change header layout to row for small screens */
+    align-items: center; /* Adjust as needed */
+  }
+
+  /* Styles for the mobile logo within the media query */
+  .logo.mobile-logo img {
+    width: 60px; /* Adjust the width for the mobile logo */
+    margin: 0; /* Remove the margin on the right side */
+    margin-bottom: 4px; /* Add margin below the mobile logo */
+  }
+
+  .search-bar {
+    margin-right: 20px; /* Add margin on the right side of the search bar */
+  }
+
+  /* Add margin between search bar and "returns-orders" link */
+  .returns-orders {
+    margin-top: 10px;
+  }
+}
+
+/* Styles for the search bar */
+.search-bar {
+  display: flex;
+  justify-content: center; /* Center the search bar horizontally */
+  align-items: center;
+  width: 100%;
+  margin-right: 20px;
+  margin-left: 20px; /* Add a margin of 20px to the left side */
+}
+
+@media screen and (max-width: 770px) {
+  /* Adjust the search bar width for screens with a maximum width of 768px or smaller */
+  .search-bar {
+    max-width: 80%;
+  }
+}
+
+/* Styles for the search bar input */
+.search-bar input {
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 800px;
+  height: 25px;
+  border: 0px solid #000;
+  border-radius: 20px 0 0 20px;
+  text-indent: 10px; /* Adjust the value as needed */
+}
+
+/* Change the color of the focus outline on the search bar input to a darker orange */
+.search-bar input:focus {
+  outline: 3px solid #FF9900; /* Use the desired color code for the darker orange */
+}
+
+/* Add a transition for the search button */
+.search-button {
+  background: rgb(254, 189, 105);
+  border: 0px solid #000;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  width: 60px;
+  border-radius: 0 20px 20px 0;
+  height: 45px;
+  transition: transform 0s; /* Set the transition duration to 0 seconds for an instant change */
+}
+
+/* Styles for the search button image */
+.search-button img {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+/* Change the size of the search button on focus */
+.search-bar input:focus + .search-button {
+  transform: scale(1.135); /* Increase the size by 13.5% */
+  transition: transform 0s; /* Set the transition duration to 0 seconds for an instant change */
+}
+
+/* Styles for the hamburger menu image */
+.hamburger-menu {
+  display: none; /* Initially hide the hamburger menu */
+  cursor: pointer; /* Add a pointer cursor for user interaction */
+  width: 25px; /* Set a fixed width */
+  height: 25px; /* Set a fixed height */
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 770px) {
+  .hamburger-menu {
+    display: inline; /* Show the hamburger menu image on smaller screens */
+  }
+}
+
+.extended-menu {
+  display: block; /* Initially hide the extended menu */
+  position: absolute;
+  top: 100%; /* Position it below the hamburger menu */
+  right: 0; /* Position it to the right of the screen */
+  background-color: rgb(19, 25, 33); /* Background color for the menu */
+  z-index: 1; /* Ensure it appears above other content */
+  width: 100%; /* Set the width to 80% of the parent container */
+  max-height: 0; /* Initially hide the content */
+  opacity: 0; /* Initially make it transparent */
+  overflow: hidden; /* Hide any overflowing content */
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Adjusted duration */
+}
+
+/* Add a class to open the menu */
+.extended-menu.open {
+  max-height: 200px; /* Adjust the maximum height as needed */
+  opacity: 1; /* Make the content fully visible when the menu is open */
+  overflow: visible; /* Make the content visible when the menu is open */
+}
+
+.extended-menu ul {
+  text-align: center; /* Center-align the text within the ul */
+  list-style-type: none;
+  padding: 0;
+}
+
+.extended-menu li {
+  padding: 10px 20px; /* Adjust padding as needed */
+  text-align: center; /* Center-align the text within the li */
+}
+
+.extended-menu a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap; /* Prevent text from wrapping */
+  /* Add more styles as needed */
+}
+
+/* Style for the "0" element in the cart */
+.extended-menu-cart-number {
+  color: rgb(240, 136, 4);
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold;
+  /* Add other styles you want to keep consistent */
+}
+
+.returns-orders a {
+  color: #ffffff;
+  text-decoration: none;
+  max-width: 120px;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.and-orders {
+  display: block;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  max-width: 120px; /* Adjust the maximum width as needed */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Style for the "0" element */
+.cart-number {
+  color: rgb(240, 136, 4);
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  top: 3px; /* Adjust the top position as needed */
+  right: 41px; /* Adjust the right position as needed */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Define a class for the cart image */
+.cart img {
+  max-width: 40px; /* Adjust the maximum width as needed */
+  max-height: 40px; /* Adjust the maximum height as needed */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  margin-right: 10px;
+}
+
+/* Style for the "Cart" text */
+.cart-text {
+  color: white;
+  font-size: 16px; /* Adjust the font size as needed */
+  margin-left: 5px; /* Adjust the left margin as needed */
+  font-weight: bold;
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgb(19, 25, 33);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  color: rgb(240, 136, 4);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  max-width: 200px;
+  overflow-y: auto; /* Make the dropdown scrollable */
+  max-height: calc(100vh - 70px); /* Adjust as needed */
+}
+
+#cart-dropdown > div {
+  margin-bottom: 8px;
+}
+
+#cart-dropdown > div:last-child {
+  margin-bottom: 12px;
+}
+
+#cart:hover .cart-dropdown {
+  display: block;
+  padding-right: 20px; /* Adjust as needed */
+}
+
+#cart-dropdown .euro-price {
+  color: white;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for overflowing text */
+}

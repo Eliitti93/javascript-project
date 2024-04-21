@@ -1,0 +1,67 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  height: 25px; /* Adjust this value to your preferred height */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 15%; /* Adjust this value to your preference */
+}
+
+.logo.desktop-logo img {
+  width: 100px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, cursor 0.3s;
+  cursor: pointer;
+}
+
+.logo.desktop-logo img:hover {
+  filter: drop-shadow(-1px 2px 1px rgba(255, 153, 0, 0.7));
+  transform: scale(1.1);
+}
+
+.logo.mobile-logo img {
+  max-width: 50px; /* Adjust this value to your preferred size */
+  width: 100%; /* Ensure the image doesn't exceed its container */
+  transition: box-shadow 0.3s ease, transform 0.3s ease, cursor 0.3s;
+  cursor: pointer;
+}
+
+.logo.mobile-logo img:hover {
+  filter: drop-shadow(-1px 2px 1px rgba(255, 153, 0, 0.7));
+  transform: scale(1.1);
+}
+
+/* Media query to hide the mobile logo on larger screens */
+@media screen and (min-width: 771px) {
+  .logo.mobile-logo {
+    display: none;
+  }
+}
+
+/* Media query for screens up to 770px wide (for mobile version) */
+@media screen and (max-width: 770px) {
+  .logo.desktop-logo {
+    display: none;
+  }
+}
+
+h1 {
+  font-size: 25px;
+  color: white;
+  margin: 0;
+  text-align: center;
+  margin-right: 20%; /* Adjust this value to your preference */
+  flex-grow: 1;
+}
+
+#cart-counter {
+  font-size: 0.8em;
+  color: rgb(240, 136, 4);
+  margin-left: 5px;
+}

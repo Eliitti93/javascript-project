@@ -1,0 +1,306 @@
+body {
+  visibility: hidden;
+  background-color: #232f3e;
+  margin: 0;
+  padding-top: 70px; /* Add padding to the top of the body */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  min-width: 250px;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+body:after {
+  content: url('items/athletic-cotton-socks-6-pairs.jpg') url('items/intermediate-composite-basketball.jpg');
+  display: none;
+}
+
+/* Styles for the product grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: flex-start;
+  box-sizing: border-box; /* Include padding and border in box model calculation */
+}
+
+@media (max-width: 2560px) {
+  .products-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 2000px) {
+  .products-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (max-width: 1600px) {
+  .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 770px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #232f3e;
+  padding: 20px;
+  align-items: flex-start;
+  min-height: 600px;
+  box-sizing: border-box;
+  box-shadow: 0 0 1px 0.5px rgba(254, 189, 105, 0.4);
+  border-bottom: 2px solid transparent;
+}
+
+@media screen and (max-width: 770px) {
+  .product-box {
+    min-height: 450px; /* Adjust the height for smaller screens */
+  }
+}
+
+.image-container {
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 10px; /* Adjust spacing */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%; /* Make the image fill the container's fixed height */
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+  display: block;
+}
+
+.product-box p {
+  margin: 0;
+  box-sizing: border-box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* Display up to 2 lines */
+  min-height: 38px; /* Set a minimum height for two rows */
+  cursor: pointer;
+}
+
+.product-name-container {
+  max-height: 3em; /* Adjust the value based on your design */
+  overflow: hidden;
+}
+
+.product-name-container p {
+  margin: 0;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Styles for the stars */
+.rating {
+  display: flex;
+  flex-direction: row;
+  height: 50px; /* Adjust the height as needed */
+  justify-content: center;
+  gap: 2px;
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  line-height: 1; /* Ensure no extra line height affecting vertical alignment */
+}
+
+.star.active {
+  color: #ffcc00; /* Set the color for the filled star */
+}
+
+/* Style for the fake number of reviews */
+.reviews {
+  color: rgb(240, 136, 4);
+  margin-left: 4px; /* Add some left margin for spacing */
+  display: inline-block; /* Ensure it's on the same line as the stars */
+  cursor: pointer;
+}
+
+.price {
+  position: relative;
+  top: -3%; /* Adjust this value to move the price element up or down */
+  font-size: 16px;
+  color: #fff; /* Change the color to white */
+}
+
+.quantity-dropdown {
+  background-color: #394b5e;
+  color: #fff;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-self: flex-start; /* Align elements to the start of the flex container */
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid transparent; /* Add this line to set a default border */
+}
+
+.quantity-dropdown:hover {
+  border-color: #ff9900;
+}
+
+.quantity-dropdown:focus {
+  border-color: #ff9900; /* Change this to the color you want when the dropdown is focused/selected */
+  border-width: 1px; /* Adjust this value to increase or decrease the border thickness during focus */
+  outline: none; /* Remove the default focus outline */
+}
+
+.quantity-button {
+  background-color: #ff9900;
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  align-self: flex-start; /* Align elements to the start of the flex container */
+  margin-right: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.quantity-button:hover {
+  background-color: #ffcc00; /* Change the color on hover */
+}
+
+/* Style for the quantity container */
+.quantity-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+.color-container {
+  position: absolute;
+  top: 70%;
+  left: 20px; /* Adjust as needed */
+}
+
+.color-info {
+  position: absolute;
+  bottom: 14px; /* Adjust the distance from the bottom as needed */
+  left: 4%; /* Position relative to the left edge */
+  margin-left: 6px; /* Adjust the margin as needed */
+  color: #fff;
+  font-size: 16px; /* Adjust the font size as needed */
+  cursor: text !important;
+}
+
+.color-button {
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin-right: 6px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  position: relative;
+}
+
+.size-container {
+  position: absolute;
+  top: calc(80% + 10px); /* Adjust the top position */
+  left: 20px; /* Adjust as needed */
+}
+
+.size-info {
+  position: absolute;
+  bottom: 14px; /* Adjust the distance from the bottom as needed */
+  left: 4%; /* Position relative to the left edge */
+  margin-left: 6px; /* Adjust the margin as needed */
+  color: #fff;
+  font-size: 16px; /* Adjust the font size as needed */
+  cursor: text !important;
+}
+
+.size-button {
+  background-color: #394b5e;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin-right: 6px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  position: relative;
+}
+
+
+.add-to-cart-button {
+  background-color: #ff9900;
+  color: #232f3e;
+  width: 220px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 80%; /* Make the button take 100% of its container's width */
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+
+.add-to-cart-button:hover {
+  background-color: #ffcc00; /* Change to a slightly different color on hover */
+}
+
+/* Add a media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr)); /* Adjust for smaller screens */
+  }
+}
+
+/* For Webkit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width to make it thinner */
+  background-color: rgb(19, 25, 33);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff9900; /* Set the color of the scrollbar thumb */
+  border-radius: 8px; /* Set border-radius for rounded corners */
+}

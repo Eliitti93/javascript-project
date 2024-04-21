@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Amazon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="logo desktop-logo">
+            <img src="logo/amazon-logo-white.png" alt="Desktop Logo">
+        </div>
+        <div class="logo mobile-logo">
+            <img src="logo/amazon-mobile-logo-white.png" alt="Mobile Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button class="search-button">
+                <img src="search/search-icon.png" alt="Search Button">
+            </button>           
+        </div>
+        <img class="hamburger-menu" src="menu/hamburger-menu.png" alt="Hamburger Menu">
+        <div class="extended-menu">
+            <ul>
+                <li><a href="#">Returns & Orders</a></li>
+                <li><a href="#">Cart <span id="extended-menu-cart-number" class="extended-menu-cart-number">(0)</span></a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>        
+        <div class="returns-orders">
+            <a href="#">
+                <span>Returns</span>
+                <span class="bold-text and-orders">& Orders</span>
+            </a>
+        </div>            
+        <div class="cart" id="cart">
+            <div class="cart-image">
+                <img src="cart/cart-icon.png" alt="Cart Logo" id="cart-img">
+            </div>
+            <div class="cart-number" id="cart-number">0</div>
+            <span class="cart-text">Cart</span>
+            <div class="cart-dropdown" id="cart-dropdown">
+            </div>
+        </div>
+    </header>
+    
+<!-- Product boxes section -->
+<section class="products-grid" id="productGrid">
+    <!-- Product boxes will be dynamically generated here -->
+    </section>
+
+    <script defer src="amazon.js"></script>
+
+    <script>
+        function addToCart(productId) {
+          // Assume you have logic to handle adding the product to the cart
+          // Here, you can create an object with the relevant cart information
+          const cartInfo = {
+            productId: productId,
+            quantity: 1, // For simplicity, you might adjust this based on the selected quantity
+            productName: document.querySelector(`[data-product-id="${productId}"]`).getAttribute('data-product-name'),
+            productPrice: parseFloat(document.querySelector(`[data-product-id="${productId}"]`).getAttribute('data-product-price')),
+          };
+      
+          // Post the cart information to the parent window (checkout.html)
+          window.parent.postMessage(cartInfo, '*');
+        }
+      </script>
+    
+    <script>
+        window.addEventListener('load', function() {
+          document.body.style.visibility = 'visible';
+        });
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, stylesheets, and scripts go here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="checkout.css">
+    <link rel="stylesheet" type="text/css" href="header_checkout.css">
+    <title>Checkout</title>
+</head>
+<body>
+    <!-- Logo and header container -->
+    <div class="header-container">
+        <div class="logo-container">
+            <div class="logo desktop-logo">
+                <img src="logo/amazon-logo-white.png" alt="Desktop Logo">
+            </div>
+            <div class="logo mobile-logo">
+                <img src="logo/amazon-mobile-logo-white.png" alt="Mobile Logo">
+            </div>
+        </div>
+        <!-- Checkout header -->
+        <h1>Checkout <span id="cart-counter">(0)</span></h1>
+    </div>
+    
+    <div id="cart-details">
+        <!-- Content will be dynamically generated here -->
+    </div>
+
+    <div id="total-amount">
+        <!-- Total amount will be dynamically updated here -->
+    </div>
+
+    <!-- Include any other checkout-related content or forms -->
+
+    <script src="checkout.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Other code...
+    
+            // Listen for messages from other windows (e.g., amazon.html)
+            window.addEventListener('message', function (event) {
+                console.log('Message received:', event.data);
+                if (event.data && event.data.type === 'cartUpdated') {
+                    // Update the local cart data
+                    const updatedCart = event.data.cart;
+    
+                    // Update the checkout page based on the updated cart
+                    updateCheckoutPage(updatedCart);
+                }
+            });
+            
+            // Function to update the checkout page based on the cart
+            function updateCheckoutPage(updatedCart) {
+                // Your existing code to update the checkout page...
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('load', function() {
+        document.body.style.visibility = 'visible';
+        });
+    </script>
+</body>
+</html>
